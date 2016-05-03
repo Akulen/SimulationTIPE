@@ -5,7 +5,7 @@
 
 void dotToFile(std::string name, std::string dot)
 {
-	FILE *file = fopen((std::string("Dot") + name + std::string(".dot")).c_str(), "w");
+	FILE *file = fopen((std::string("Dot/") + name + std::string(".dot")).c_str(), "w");
     fprintf(file, "%s", dot.c_str());
 	fclose(file);
 }

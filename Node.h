@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+class Edge;
+
 class Node
 {
 	public:
@@ -19,7 +21,7 @@ class Node
 	int nbBits;
 	int id;
 	int bucketSize;
-	std::vector<std::vector<Node> > buckets;
+	std::vector<std::vector<Edge*> > buckets;
 };
 
 #endif

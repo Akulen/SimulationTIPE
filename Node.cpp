@@ -1,4 +1,5 @@
 #include "Node.h"
+#include "Edge.h"
 
 Node::Node(int nbBits, int id, int bucketSize)
 {
@@ -26,9 +27,9 @@ int Node::getBucketSize()
 std::string Node::toDot()
 {
 	std::string result = "	" + std::to_string(this->id) + " -- { ";
-	for(std::vector<std::vector<Node> >::iterator bucketIt = this->buckets.begin(); bucketIt != this->buckets.end(); ++bucketIt)
-		for(std::vector<Node>::iterator nodeIt = bucketIt->begin(); nodeIt != bucketIt->end(); ++nodeIt)
-			result += std::to_string(nodeIt->getId()) + " ";
+	for(std::vector<std::vector<Edge*> >::iterator bucketIt = this->buckets.begin(); bucketIt != this->buckets.end(); ++bucketIt)
+		for(std::vector<Edge*>::iterator edgeIt = bucketIt->begin(); edgeIt != bucketIt->end(); ++edgeIt)
+			result += std::to_string((*edgeIt)->getDest()->getId()) + " ";
 	result += "};\n";
 	return result;
 }

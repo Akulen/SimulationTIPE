@@ -5,8 +5,8 @@ CFLAGS=-Wall -Wextra -std=c++14
 %.o: %.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-all: main.o Kademlia.o Node.o
-	$(CC) main.o Kademlia.o Node.o $(CFLAGS) -o Simulation
+all: main.o Kademlia.o Node.o Edge.o
+	$(CC) main.o Kademlia.o Node.o Edge.o $(CFLAGS) -o Simulation
 #
 #all: main.o fonctions.o
 #        gcc main.o fonctions.o -o Simulation
