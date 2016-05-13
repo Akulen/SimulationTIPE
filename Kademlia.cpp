@@ -24,16 +24,16 @@ int Kademlia::getBucketSize()
 	return this->bucketSize;
 }
 
-Node Kademlia::getNode(int idNode)
+Node* Kademlia::getNode(int idNode)
 {
-	if(idNode >= 0 && idNode < this->nbNodes)
-		return this->graph[idNode];
-	return Node(this->nbBits, -1, this->bucketSize);
+	if(idNode < 0 && idNode >= this->nbNodes)
+		idNode = 0;
+	return &this->graph[idNode];
 }
 
 std::string Kademlia::toDot()
 {
-	std::string result = "graph {\n";
+	std::string result = "digraph {\n";
 	for(std::vector<Node>::iterator nodeIt = this->graph.begin(); nodeIt != this->graph.end(); ++nodeIt)
 		result += nodeIt->toDot();
 	result += "}\n";

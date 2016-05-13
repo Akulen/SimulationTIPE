@@ -14,7 +14,7 @@ class Kademlia
 	int getNbBits();
 	int getNbNodes();
 	int getBucketSize();
-	Node getNode(int idNode);
+	Node* getNode(int idNode);
 	void writeToFile(std::string name);
 	std::string toDot();
 
