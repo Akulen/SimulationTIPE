@@ -17,6 +17,7 @@ class Kademlia
 	Node* getNode(int idNode);
 	void writeToFile(std::string name);
 	std::string toDot();
+	int closestFather(int iNode, int jNode);
 
 	private:
 

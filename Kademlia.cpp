@@ -39,3 +39,12 @@ std::string Kademlia::toDot()
 	result += "}\n";
 	return result;
 }
+
+int Kademlia::closestFather(int iNode, int jNode)
+{
+	int difference = iNode xor jNode;
+	int distance = this->nbBits;
+	while(distance > 0 && !(difference & (1 << (distance - 1))))
+		--distance;
+	return distance;
+}

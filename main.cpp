@@ -16,7 +16,7 @@ int main()
 {
 	srand(time(0));
 	Kademlia reseau(4);
-	printf("%d\n", reseau.getNbNodes());
+	printf("%d %d\n", reseau.getNbNodes(), reseau.closestFather(9, 14));
 	for(int iNode = 0; iNode < reseau.getNbNodes(); ++iNode)
 		if(rand() % 2)
 			reseau.getNode(iNode)->toggleConnected();
